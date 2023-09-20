@@ -25,7 +25,7 @@ const StackNavigator = () => {
           if (route.name === "Home" ) {
             iconName = focused ? "ios-home-sharp" : "ios-home-outline";
          
-          } else if (route.name === "All Series") {
+          } else if (route.name === "AllSeries") {
             iconName = focused ? "file-tray-full" : "file-tray-full-outline";
          
           } else if (route.name === "Search") {
@@ -46,7 +46,7 @@ const StackNavigator = () => {
         },
       })}>
         <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="All Series" component={AllSeriesScreen} />
+        <Tab.Screen name="AllSeries" component={AllSeriesScreen} />
         <Tab.Screen name="Search" component={SearchScreen} />
         <Tab.Screen name="Watchlist" component={WatchListScreen} />
       </Tab.Navigator>

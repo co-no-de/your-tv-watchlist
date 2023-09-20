@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import SeriesCard from "../components/SeriesCard";
-import { AntDesign } from "@expo/vector-icons";
 import { colors, fonts, series } from "../assets/data";
 import ScreenWrapper from "../components/ScreenWrapper";
 
@@ -60,8 +59,7 @@ const HomeScreen = () => {
     <ScreenWrapper>
       <ScrollView alwaysBounceVertical={false} bounces={false}>
         <View style={styles.category}>
-          <Text style={styles.textBig}>Popular</Text>
-          <AntDesign name="doubleright" size={20} color={colors.black} />
+          <Text style={styles.textBig}>Popular</Text>         
         </View>
         <ScrollView
           horizontal={true}
@@ -83,8 +81,7 @@ const HomeScreen = () => {
         </ScrollView>
 
         <View style={styles.category}>
-          <Text style={styles.textBig}>Highest rated</Text>
-          <AntDesign name="doubleright" size={20} color={colors.black} />
+          <Text style={styles.textBig}>Highest rated</Text>         
         </View>
 
         <ScrollView
@@ -107,8 +104,7 @@ const HomeScreen = () => {
         </ScrollView>
 
         <View style={styles.category}>
-          <Text style={styles.textBig}>Newest</Text>
-          <AntDesign name="doubleright" size={20} color={colors.black} />
+          <Text style={styles.textBig}>Newest</Text>         
         </View>
         <ScrollView
           horizontal={true}
@@ -145,7 +141,7 @@ const styles = StyleSheet.create({
   },
   textBig: {
     fontFamily: fonts.primaryFont,
-    fontSize: 22,
+    fontSize: 18,
   },
   scrollViewHorizontal: {
     marginBottom: 18,

@@ -17,7 +17,7 @@ const Pagination = ({
     <View style={styles.paginationContainer}>
       {pages.map((page, index) => (
         <Pressable
-          style={[styles.pressable, page === currentPage ? styles.current : {}]}
+          style={[styles.pressable, page === currentPage && styles.current]}
           key={index}
           onPress={() => setCurrentPage(page)}
         >

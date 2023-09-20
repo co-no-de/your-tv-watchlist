@@ -235,7 +235,7 @@ const series = [
     imdbRating: 8.3,
     description: "It follows the workings of an American jury trial through the eyes of Ronald Gladden, a juror who is unaware the entire case is fake. Everyone except him is an actor, and everything that happens is carefully planned.",
     bookmarks: 0,
-    cast: ["James Marsden", "Alan Barinholt", "zSusan Berger"],
+    cast: ["James Marsden", "Alan Barinholt", "Susan Berger"],
     category: "Comedy",
     releaseDate: "07-04-2023",
     releaseDateSort: 2023040701,

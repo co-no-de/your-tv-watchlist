@@ -1,13 +1,11 @@
 import { StyleSheet, Text, View, ScrollView, Pressable } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Image } from "expo-image";
-import { colors, series, fonts } from '../assets/data'
+import { colors, series, fonts, userStorage } from '../assets/data'
 import ScreenWrapper from "../components/ScreenWrapper";
 import { AntDesign } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import BackButton from "../components/BackButton";
-
-const userStorage = "userStorageData";
 
 const SingleScreen = ({ route, navigation }) => {  
   const [bookmarks, setBookmarks] = useState([])
