@@ -5,7 +5,6 @@ import StackNavigator from "./StackNavigator";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { useCallback } from "react";
-import Header from "./components/Header";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -25,7 +24,7 @@ export default function App() {
 
   return (
     <View style={styles.container} onLayout={handleOnLayout}>
-      <Header />
+  
       <StackNavigator />
       <StatusBar style="light" />
       <ModalPortal />

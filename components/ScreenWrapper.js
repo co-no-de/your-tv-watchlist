@@ -1,6 +1,7 @@
 import { StyleSheet, View } from 'react-native'
 import { LinearGradient } from "expo-linear-gradient";
 import { colors } from '../assets/data'
+import Header from './Header'
 
 
 const ScreenWrapper = ({ children }) => {
@@ -12,6 +13,7 @@ const ScreenWrapper = ({ children }) => {
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 0 }}
     >
+      <Header />
       {children}
 
     </LinearGradient>

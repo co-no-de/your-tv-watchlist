@@ -1,16 +1,17 @@
-import { StyleSheet, View, Pressable, Text } from "react-native";
+import { StyleSheet, View, Pressable } from "react-native";
 import { colors } from "../assets/data";
+import * as Animatable from 'react-native-animatable';
 
 const CustomTabBarButton = props => {
   const { children, accessibilityState, onPress } = props;
 
   if (accessibilityState.selected) {
     return (
-      <View style={styles.btnWrapper}>
+      <Animatable.View animation="zoomIn" duration={400} style={styles.btnWrapper}>
         <Pressable onPress={onPress} style={styles.activeBtn}>
           <View>{children}</View>
         </Pressable>
-      </View>
+      </Animatable.View>
     );
   } else {
     return (
