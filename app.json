@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "your-tv-watchlist",
+    "name": "Your TV Watchlist",
     "slug": "your-tv-watchlist",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -8,7 +8,7 @@
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "assetBundlePatterns": [
@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.webcode.yourtvwatchlist"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ad4eb5dd-b455-42cf-aea1-7997e6fd2669"
+      }
     }
   }
 }
