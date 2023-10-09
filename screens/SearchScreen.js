@@ -61,6 +61,7 @@ const SearchScreen = () => {
             description={item.description}
           />
         ))}
+          <View style={{height: 25}}></View>
       </ScrollView>
    </ScreenWrapper>
   );

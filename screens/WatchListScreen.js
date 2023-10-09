@@ -26,7 +26,6 @@ const WatchListScreen = ({ navigation }) => {
       async function getLocalStorageData() {
         let localUserSeriesString = await AsyncStorage.getItem(userStorage);
         let localUserArray = await JSON.parse(localUserSeriesString);
-        console.log(localUserArray);
 
         if (!localUserArray) {
           setBookmarks([]);
@@ -119,6 +118,7 @@ const WatchListScreen = ({ navigation }) => {
           </View>
         )}
       </ScrollView>
+      <View style={{ height: 25 }}></View>
     </ScreenWrapper>
   );
 };

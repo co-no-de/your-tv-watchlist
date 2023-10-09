@@ -124,7 +124,8 @@ const HomeScreen = () => {
             />
           ))}
         </ScrollView>
-      </ScrollView>
+        <View style={{height: 25}}></View>
+      </ScrollView>      
     </ScreenWrapper>
   );
 };
