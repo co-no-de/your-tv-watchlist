@@ -5,6 +5,10 @@ import StackNavigator from "./StackNavigator";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { useCallback } from "react";
+import { userStorage } from "./assets/data";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -14,6 +18,15 @@ export default function App() {
 
   const handleOnLayout = useCallback(async () => {
     if (fontsLoaded) {
+
+      let localUserSeriesString = await AsyncStorage.getItem(userStorage);
+      let localUserArray = await JSON.parse(localUserSeriesString);
+
+      if(localUserArray.length === 0) {
+        let startArray = [];
+        await AsyncStorage.setItem(userStorage, JSON.stringify(startArray));
+      }
+
       await SplashScreen.hideAsync(); //hide the splashscreen
     }
   }, [fontsLoaded]);
@@ -23,8 +36,7 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container} onLayout={handleOnLayout}>
-  
+    <View style={styles.container} onLayout={handleOnLayout}>  
       <StackNavigator />
       <StatusBar style="light" />
       <ModalPortal />

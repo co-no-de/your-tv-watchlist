@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, ScrollView, Pressable } from "react-native";
 import { useEffect, useState } from "react";
 import ScreenWrapper from "../components/ScreenWrapper";
 import { colors, series, fonts, userStorage } from "../assets/data";
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome } from "@expo/vector-icons";
 import Pagination from "../components/Pagination";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import SeriesCardGridWatchlist from "../components/SeriesCardGridWatchlist";
@@ -17,8 +17,8 @@ const WatchListScreen = ({ navigation }) => {
   let bookmarkedSeries = series.filter(item => bookmarks.includes(item.id));
   let currentPosts = bookmarkedSeries.slice(firstPostIndex, lastPostIndex);
 
-  if(currentPosts.length === 0) {   
-    currentPosts = bookmarkedSeries
+  if (currentPosts.length === 0) {
+    currentPosts = bookmarkedSeries;
   }
 
   useEffect(() => {
@@ -39,16 +39,15 @@ const WatchListScreen = ({ navigation }) => {
 
   async function removeBookmark(serieId) {
     try {
-     let localUserSeriesArray = await AsyncStorage.getItem(userStorage);
-     let temp = await JSON.parse(localUserSeriesArray)
-     temp = temp.filter(item => item != serieId)
-     await AsyncStorage.setItem(userStorage, JSON.stringify(temp));
-     setBookmarks(temp)
-     } catch (error) {
-     console.log(error)
+      let localUserSeriesArray = await AsyncStorage.getItem(userStorage);
+      let temp = await JSON.parse(localUserSeriesArray);
+      temp = temp.filter(item => item != serieId);
+      await AsyncStorage.setItem(userStorage, JSON.stringify(temp));
+      setBookmarks(temp);
+    } catch (error) {
+      console.log(error);
     }
-   }
- 
+  }  
 
   return (
     <ScreenWrapper>
@@ -59,7 +58,7 @@ const WatchListScreen = ({ navigation }) => {
       >
         <View style={styles.seriesContainer}>
           {currentPosts.map(item => (
-            <View key={item.id} style={styles.serieContainer}  >           
+            <View key={item.id} style={styles.serieContainer}>
               <SeriesCardGridWatchlist
                 serieId={item.id}
                 title={item.title}
@@ -67,24 +66,31 @@ const WatchListScreen = ({ navigation }) => {
                 rating={item.imdbRating}
                 date={item.releaseDateSort}
               />
-                <View style={styles.removeContainer}>
-                  <Pressable onPress={() => removeBookmark(item.id)} style={styles.removePressable}>
-                    <Text style={styles.removeText}>Remove from watchlist</Text>
-                    <FontAwesome name="remove" size={18} color={colors.primaryYellow} />
-                  </Pressable>
-                </View>
+              <View style={styles.removeContainer}>
+                <Pressable
+                  onPress={() => removeBookmark(item.id)}
+                  style={styles.removePressable}
+                >
+                  <Text style={styles.removeText}>Remove from watchlist</Text>
+                  <FontAwesome
+                    name="remove"
+                    size={18}
+                    color={colors.primaryYellow}
+                  />
+                </Pressable>
+              </View>
             </View>
-          
           ))}
         </View>
-        {currentPosts.length > 8 || bookmarkedSeries.length > 8 && (
-          <Pagination
-            totalPosts={bookmarkedSeries.length}
-            postsPerPage={postsPerPage}
-            setCurrentPage={setCurrentPage}
-            currentPage={currentPage}
-          />
-        )}
+        {currentPosts.length > 8 ||
+          (bookmarkedSeries.length > 8 && (
+            <Pagination
+              totalPosts={bookmarkedSeries.length}
+              postsPerPage={postsPerPage}
+              setCurrentPage={setCurrentPage}
+              currentPage={currentPage}
+            />
+          ))}
 
         {bookmarks.length === 0 && (
           <View>
@@ -124,8 +130,7 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
   },
   serieContainer: {
-    width: '50%'
-
+    width: "50%",
   },
   goToAllSeriesText: {
     fontFamily: fonts.primaryFont,
@@ -149,16 +154,16 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   removeContainer: {
-    alignItems: 'center'
+    alignItems: "center",
   },
   removePressable: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center'
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
   removeText: {
     color: colors.primaryYellow,
     fontFamily: fonts.primaryFontLight,
-    marginRight: 5
-  }
+    marginRight: 5,
+  },
 });
