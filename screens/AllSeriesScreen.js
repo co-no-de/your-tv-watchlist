@@ -513,6 +513,7 @@ const AllSeriesScreen = () => {
             </View>
           </ModalContent>
         </BottomModal>
+        <View style={{height: 25}}></View>
     </ScreenWrapper>
    
      
