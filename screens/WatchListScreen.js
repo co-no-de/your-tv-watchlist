@@ -17,7 +17,7 @@ const WatchListScreen = ({ navigation }) => {
   let bookmarkedSeries = series.filter(item => bookmarks.includes(item.id));
   let currentPosts = bookmarkedSeries.slice(firstPostIndex, lastPostIndex);
 
-  if (currentPosts.length === 0) {
+  if (!currentPosts.length === 0) {
     currentPosts = bookmarkedSeries;
   }
 
@@ -26,7 +26,13 @@ const WatchListScreen = ({ navigation }) => {
       async function getLocalStorageData() {
         let localUserSeriesString = await AsyncStorage.getItem(userStorage);
         let localUserArray = await JSON.parse(localUserSeriesString);
-        setBookmarks(localUserArray);
+        console.log(localUserArray);
+
+        if (!localUserArray) {
+          setBookmarks([]);
+        } else {
+          setBookmarks(localUserArray);
+        }
       }
       getLocalStorageData();
     });
@@ -47,7 +53,7 @@ const WatchListScreen = ({ navigation }) => {
     } catch (error) {
       console.log(error);
     }
-  }  
+  }
 
   return (
     <ScreenWrapper>

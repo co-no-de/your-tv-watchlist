@@ -8,7 +8,7 @@ import { useCallback } from "react";
 import { userStorage } from "./assets/data";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-SplashScreen.preventAutoHideAsync();
+
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -22,7 +22,7 @@ export default function App() {
       let localUserSeriesString = await AsyncStorage.getItem(userStorage);
       let localUserArray = await JSON.parse(localUserSeriesString);
 
-      if(localUserArray.length === 0) {
+      if(!localUserArray) {
         let startArray = [];
         await AsyncStorage.setItem(userStorage, JSON.stringify(startArray));
       }
